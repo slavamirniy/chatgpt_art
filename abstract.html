@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Анимация абстрактной картинки</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background: #222;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            animation: zoom 40s ease-out alternate infinite;
+        }
+        
+        svg {
+            width: 200px;
+            height: 200px;
+            fill: none;
+            stroke: white;
+            stroke-width: 1;
+        }
+        
+        polygon {
+            animation: rotation 10s ease-out alternate infinite;
+        }
+        
+        polyline {
+            animation: rotation 12s ease-out alternate infinite;
+        }
+        
+        circle {
+            animation: rotation 14s ease-out alternate infinite;
+        }
+        
+        @keyframes rotation {
+            from {
+                transform: rotate(0);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes zoom {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(10);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <svg viewBox="0 0 200 200">
+   <polygon points="100,10 40,198 190,78 10,78 160,198"></polygon>
+   <polyline points="200,10 140,198 60,10 0,198 200,198"></polyline>
+   <circle cx="100" cy="100" r="90"></circle>
+  </svg>
+    </div>
+</body>
+
+</html>
