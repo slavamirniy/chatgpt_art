@@ -11,7 +11,7 @@
         
         .bear1 {
             position: absolute;
-            top: 337px;
+            top: 270px;
             left: 50px;
             height: 100px;
             width: 80px;
@@ -21,7 +21,7 @@
         
         .bear2 {
             position: absolute;
-            top: 347px;
+            top: 260px;
             left: 300px;
             height: 90px;
             width: 70px;
@@ -89,14 +89,14 @@
 
         // Нарисовать первого мишку
         ctx.fillStyle = '#8d6e63';
-        // ctx.fillRect(100, canvas.height / 2 - bear1Height - seatHeight, bear1Width, bear1Height);
+        ctx.fillRect(100, canvas.height / 2 - bear1Height - seatHeight, bear1Width, bear1Height);
         ctx.beginPath();
         ctx.arc(100 + bear1Width / 2, canvas.height / 2 - seatHeight, ropeLength, -Math.PI / 2, 0);
         ctx.stroke();
 
         // Нарисовать второго мишку
         ctx.fillStyle = '#a1887f';
-        // ctx.fillRect(300, canvas.height / 2 - bear2Height - seatHeight, bear2Width, bear2Height);
+        ctx.fillRect(300, canvas.height / 2 - bear2Height - seatHeight, bear2Width, bear2Height);
         ctx.beginPath();
         ctx.arc(300 + bear2Width / 2, canvas.height / 2 - seatHeight, ropeLength, -Math.PI / 2, 0);
         ctx.stroke();
