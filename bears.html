@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Canvas Drawing</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+        
+        .bear1 {
+            position: absolute;
+            top: 337px;
+            left: 50px;
+            height: 100px;
+            width: 80px;
+            background-color: #8d6e63;
+            animation: bear1 1s ease-in-out infinite alternate;
+        }
+        
+        .bear2 {
+            position: absolute;
+            top: 347px;
+            left: 300px;
+            height: 90px;
+            width: 70px;
+            background-color: #a1887f;
+            animation: bear2 1.4s ease-in-out infinite alternate;
+        }
+        
+        @keyframes bear1 {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(20px);
+            }
+        }
+        
+        @keyframes bear2 {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-20px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas"></canvas>
+    <div class="bear1"></div>
+    <div class="bear2"></div>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const ctx = canvas.getContext('2d');
+
+        // Настройки фигур
+        const bear1Height = 100;
+        const bear1Width = 80;
+        const bear2Height = 90;
+        const bear2Width = 70;
+        const seatHeight = 50;
+        const seatWidth = 120;
+        const ropeLength = 140;
+
+        // Нарисовать зеленый фон парка
+        ctx.fillStyle = '#8bc34a';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Нарисовать голубое небо
+        ctx.fillStyle = '#00bcd4';
+        ctx.fillRect(0, 0, canvas.width, canvas.height / 2);
+
+        // Нарисовать солнце
+        ctx.beginPath();
+        ctx.arc(50, 50, 30, 0, 2 * Math.PI);
+        ctx.fillStyle = '#ffeb3b';
+        ctx.fill();
+
+        // Нарисовать землю
+        ctx.fillStyle = '#795548';
+        ctx.fillRect(0, canvas.height / 2, canvas.width, canvas.height / 2);
+
+        // Нарисовать первого мишку
+        ctx.fillStyle = '#8d6e63';
+        // ctx.fillRect(100, canvas.height / 2 - bear1Height - seatHeight, bear1Width, bear1Height);
+        ctx.beginPath();
+        ctx.arc(100 + bear1Width / 2, canvas.height / 2 - seatHeight, ropeLength, -Math.PI / 2, 0);
+        ctx.stroke();
+
+        // Нарисовать второго мишку
+        ctx.fillStyle = '#a1887f';
+        // ctx.fillRect(300, canvas.height / 2 - bear2Height - seatHeight, bear2Width, bear2Height);
+        ctx.beginPath();
+        ctx.arc(300 + bear2Width / 2, canvas.height / 2 - seatHeight, ropeLength, -Math.PI / 2, 0);
+        ctx.stroke();
+
+        // Нарисовать качели
+        ctx.fillStyle = '#795548';
+        ctx.fillRect(100 - seatWidth / 2, canvas.height / 2 - seatHeight, seatWidth, seatHeight);
+        ctx.fillRect(300 - seatWidth / 2, canvas.height / 2 - seatHeight, seatWidth, seatHeight);
+        ctx.beginPath();
+        ctx.moveTo(100, canvas.height / 2 - seatHeight);
+        ctx.lineTo(100, canvas.height / 2 - seatHeight - ropeLength);
+        ctx.moveTo(300, canvas.height / 2 - seatHeight);
+        ctx.lineTo(300, canvas.height / 2 - seatHeight - ropeLength);
+        ctx.stroke();
+    </script>
+</body>
+
+</html>
